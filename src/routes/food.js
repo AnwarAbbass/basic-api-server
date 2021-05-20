@@ -1,20 +1,20 @@
 'use strict';
 
 const express = require('express');
-const router = require('router');
+const router = express.Router();
 
-const validator = require('../src/middleware/validator.js')
+const validator = require('../middleware/validator')
 
 const Food = require('../models/food.js');
 const food = new Food();
 
-router.get('/', get);
+router.get('/', getFood);
 router.get('/:id', validator, getById);
-router.post('/', creat);
-router.put('/:id', validator, update);
+router.post('/', creatFood);
+router.put('/:id', validator, updateFood);
 router.delete('/:id', validator, deleteById);
 
-function get(req, res) {
+function getFood(req, res) {
     const obj = food.read();
     res.json(obj);
 }
@@ -24,13 +24,13 @@ function getById(req, res) {
     res.json(obj);
 }
 
-function creat(req, res) {
+function creatFood(req, res) {
     const foodobj = req.body;
     const obj = food.creat(foodobj);
     res.status(201).json(obj);
 }
 
-function update(req, res) {
+function updateFood(req, res) {
     const foodobj = req.body;
     const obj = food.update(req.params.id, foodobj);
     res.json(obj);

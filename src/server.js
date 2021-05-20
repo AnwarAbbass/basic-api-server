@@ -7,7 +7,7 @@ const morgan = require('morgan');
 const notFoundHandler = require('../src/error-handlers/404.js');
 const errorHandler = require('../src/error-handlers/500.js');
 const clothesHandler = require('../src/routes/clothes.js');
-const foodHandler = require('../src/routes/food.js');
+const foodHandler = require('../src/routes/food');
 
 const app = express();
 const logger= require('../src/middleware/logger.js')
@@ -19,8 +19,8 @@ app.use(logger)
 
 
 app.get('/', home);
-app.get('/api/v1/clothes', clothesHandler);
-app.get('/api/v1/food', foodHandler);
+app.use('/api/v1/clothes', clothesHandler);
+app.use('/api/v1/food', foodHandler);
 
 
 app.use('*', notFoundHandler);
@@ -35,6 +35,6 @@ function start(PORT) {
 }
 
 module.exports = {
-    app: app,
+    server: app,
     start: start
 };
