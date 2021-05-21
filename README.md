@@ -16,18 +16,67 @@ Author: Anwar Abbass
 `supertest`  requirements
 PORT - Port Number
 
-Running the app
-npm start
-Endpoint: /status
+## Running the app
+- npm start
+   - Endpoint: /status
 Returns Object
 
 {
-  "domain": "john-api-server.demo.herokuapp.com",
-  "status": "running",
-  "port": 42123
+  you are in the home page
 }
+
+  - Endpoint: /api/v1/food/
+Returns Object
+```
+{
+    "id": "c89686d4-d4cd-4410-943c-dde2ef133b85",
+    "data": {
+        "name": "burgger",
+        "price": "7JD"
+    }
+}
+```
+  - Endpoint: /api/v1/clothes/
+Returns Object
+```
+{
+    "id": "c89686d4-d4cd-4410-943c-dde2ef133b85",
+    "data": {
+        "name": "Dress",
+        "price": "7JD"
+    }
+}
+```
+
 Tests
 Unit Tests: npm run test
+
+
+File                | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+--------------------|---------|----------|---------|---------|-------------------
+All files           |   98.21 |       75 |   93.55 |   99.04 |
+ src                |   91.67 |      100 |      50 |   95.45 |
+  server.js         |   91.67 |      100 |      50 |   95.45 | 34
+ src/error-handlers |     100 |      100 |     100 |     100 |
+  404.js            |     100 |      100 |     100 |     100 |
+  500.js            |     100 |      100 |     100 |     100 |
+ src/middleware     |     100 |      100 |     100 |     100 |
+  logger.js         |     100 |      100 |     100 |     100 |
+ src/models         |     100 |       75 |     100 |     100 |
+  clothes.js        |     100 |       75 |     100 |     100 | 35
+  food.js           |     100 |       75 |     100 |     100 | 33
+ src/routes         |     100 |      100 |     100 |     100 |
+  clothes.js        |     100 |      100 |     100 |     100 |
+  food.js           |     100 |      100 |     100 |     100 |
+
+<br>
+
+Test Suites: 2 passed, 2 total
+Tests:       14 passed, 14 total
+Snapshots:   0 total
+Time:        51.896 s
+
 Lint Tests: npm run lint
 UML
-(Created with diagrams)
+
+![uml](uml.png)

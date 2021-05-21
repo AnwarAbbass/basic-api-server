@@ -3,16 +3,15 @@
 const express = require('express');
 const router = express.Router();
 
-const validator = require('../middleware/validator')
 
 const Clothes = require('../models/clothes.js');
 const clothes = new Clothes();
 
 router.get('/', getClothes);
-router.get('/:id', validator, getById);
+router.get('/:id', getById);
 router.post('/', createClothes);
-router.put('/:id', validator, updateClothes);
-router.delete('/:id', validator, deleteById);
+router.put('/:id', updateClothes);
+router.delete('/:id', deleteById);
 
 function getClothes(req, res) {
     const obj = clothes.read();

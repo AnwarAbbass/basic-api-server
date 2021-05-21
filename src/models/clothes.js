@@ -8,13 +8,13 @@ class Clothes{
 
     read(id) {
         if (id) {
-            return this.db.find((val) => val.id === id);
+            return this.db.find(val => val.id === id);
         } else {
             return this.db;
         }
     }
 
-    create(obj) {
+    creat(obj) {
         const clothes = {
             id: uuid(),
             data: obj,
@@ -25,7 +25,7 @@ class Clothes{
 
     delete(id) {
 
-        this.db = this.db.filter((clothes) => clothes.id !== id);
+        this.db = this.db.filter(val => val.id !== id);
         return this.db;
     }
 

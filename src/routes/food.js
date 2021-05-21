@@ -3,16 +3,14 @@
 const express = require('express');
 const router = express.Router();
 
-const validator = require('../middleware/validator')
-
 const Food = require('../models/food.js');
 const food = new Food();
 
 router.get('/', getFood);
-router.get('/:id', validator, getById);
+router.get('/:id', getById);
 router.post('/', creatFood);
-router.put('/:id', validator, updateFood);
-router.delete('/:id', validator, deleteById);
+router.put('/:id', updateFood);
+router.delete('/:id', deleteById);
 
 function getFood(req, res) {
     const obj = food.read();

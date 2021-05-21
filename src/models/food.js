@@ -1,20 +1,20 @@
 'use strict';
 const uuid = require('uuid').v4;//random
 
-class Food{
+class Food {
     constructor() {
         this.db = [];
     }
 
     read(id) {
         if (id) {
-            return this.db.find((val) => val.id === id);
+            return this.db.find(val => val.id === id);
         } else {
             return this.db;
         }
     }
 
-    create(obj) {
+    creat(obj) {
         const food = {
             id: uuid(),
             data: obj,
@@ -24,17 +24,16 @@ class Food{
     }
 
     delete(id) {
-
-        this.db = this.db.filter((food) => food.id !== id);
+        this.db = this.db.filter(val => val.id !== id);
         return this.db;
     }
 
     update(id, obj) {
         for (let i = 0; i < this.db.length; i++) {
-            if(this.db[i].id === id) {
+            if (this.db[i].id === id) {
                 this.db[i].data = obj;
                 return this.db[i];
-            } 
+            }
         }
     }
 }
