@@ -18,7 +18,7 @@ PORT - Port Number
 
 ## Running the app
 - npm start
-   - Endpoint: /status
+   - Endpoint: /
 Returns Object
 
 {
@@ -26,8 +26,11 @@ Returns Object
 }
 
   - Endpoint: /api/v1/food/
+
 Returns Object
 ```
+localhost:3000/api/v1/food/
+
 {
     "id": "c89686d4-d4cd-4410-943c-dde2ef133b85",
     "data": {
@@ -37,6 +40,7 @@ Returns Object
 }
 ```
   - Endpoint: /api/v1/clothes/
+
 Returns Object
 ```
 {
@@ -75,6 +79,8 @@ Test Suites: 2 passed, 2 total
 Tests:       14 passed, 14 total
 Snapshots:   0 total
 Time:        51.896 s
+
+[github test]()
 
 Lint Tests: npm run lint
 UML
